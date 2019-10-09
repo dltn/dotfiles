@@ -9,4 +9,12 @@ filetype plugin on " load plugins for specific file types
 
 syntax on " syntax highlighting
 
+" == vimwiki
 
+let g:vimwiki_list = [
+\ {
+    \ 'path': '~/vimwiki',
+    \ 'syntax': 'markdown',
+    \ 'ext': '.md'
+\ }
+\]
