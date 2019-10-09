@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Sets up bash scripts that should work on any system
 
+# bashrc
 if ! grep -q ".bashrc.d" ~/.bashrc
 then
     echo "Setting up ~/.bashrc.d in ~/.bashrc..."
@@ -11,3 +12,5 @@ mkdir -p ~/.bashrc.d/
 chmod 0755 ~/.bashrc.d/
 cp -iv bashrc_scripts/* ~/.bashrc.d/
 
+# vim
+cp -iv .vimrc ~/.vimrc
