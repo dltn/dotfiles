@@ -12,6 +12,8 @@ set ruler " Enable ruler (in bottom-right)
 set number " Enable line numbers
 set cursorline " Highlight the current line
 set showmatch " Highlight matching brackets
+set incsearch " Search as characters are entered
+set hlsearch " Highlight search matches
 
 " # Whitespace
 
