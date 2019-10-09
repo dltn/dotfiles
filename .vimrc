@@ -13,6 +13,16 @@ set number " Enable line numbers
 set cursorline " Highlight the current line
 set showmatch " Highlight matching brackets
 
+" # Whitespace
+
+" - Set tab defaults to 4 spaces
+filetype plugin indent on " Filetype specific indentation rules
+set tabstop=4 " Interpret a \t to have a width of 4
+set shiftwidth=4 " Set indent size of 4
+set expandtab " Expand TABs to spaces
+
+set list listchars=trail:· " Visualize trailing whitespace with a dot
+
 " # vimwiki
 
 " - Set default vimwiki format to markdown
