@@ -19,9 +19,9 @@ cp -iv .vimrc ~/.vimrc
 cp -iv .tmux.conf ~/.tmux.conf
 
 # extras
-read -p "Install extras? [y/N]" -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-    sh extras_install.sh
+echo "Install extras? [y/n]"
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+        sh extras_install.sh
 fi
+
