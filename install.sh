@@ -15,6 +15,9 @@ cp -iv bashrc_scripts/* ~/.bashrc.d/
 # vim
 cp -iv .vimrc ~/.vimrc
 
+# tmux
+cp -iv .tmux.conf ~/.tmux.conf
+
 # extras
 read -p "Install extras? [y/N]" -n 1 -r
 echo
