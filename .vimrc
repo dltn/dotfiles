@@ -8,6 +8,10 @@ filetype plugin on " Load plugins for specific file types
 " # Look & Feel
 
 syntax on " Enable syntax highlighting
+set ruler " Enable ruler (in bottom-right)
+set number " Enable line numbers
+set cursorline " Highlight the current line
+set showmatch " Highlight matching brackets
 
 " # vimwiki
 
