@@ -14,3 +14,11 @@ cp -iv bashrc_scripts/* ~/.bashrc.d/
 
 # vim
 cp -iv .vimrc ~/.vimrc
+
+# extras
+read -p "Install extras? [y/N]" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    sh extras_install.sh
+fi
