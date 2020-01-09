@@ -27,6 +27,10 @@ set list listchars=trail:· " Visualize trailing whitespace with a dot
 
 " # vimwiki
 
+" - Diary Navigation Mapping
+:nnoremap <leader><Left> :VimwikiDiaryPrevDay<CR>
+:nnoremap <leader><Right> :VimwikiDiaryNextDay<CR>
+
 " - Set default vimwiki format to markdown
 let g:vimwiki_list = [
 \ {
