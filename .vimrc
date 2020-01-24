@@ -5,6 +5,9 @@
 set nocompatible " Disable vi compatibility (https://stackoverflow.com/a/5845583)
 filetype plugin on " Load plugins for specific file types
 
+" # Core remaps
+nnoremap zz :update<cr>
+
 " # Look & Feel
 
 syntax on " Enable syntax highlighting
