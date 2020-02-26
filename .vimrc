@@ -17,6 +17,8 @@ set cursorline " Highlight the current line
 set showmatch " Highlight matching brackets
 set incsearch " Search as characters are entered
 set hlsearch " Highlight search matches
+set colorcolumn=80 " Highlight line length 80 ('cc')
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey " Gray cc (not red)
 
 " # Whitespace
 
