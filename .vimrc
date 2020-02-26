@@ -2,7 +2,7 @@
 
 " # Basics
 
-set nocompatible " Disable vi compatibility (https://stackoverflow.com/a/5845583)
+set nocompatible " Disable vi compatibility (stackoverflow.com/a/5845583)
 filetype plugin on " Load plugins for specific file types
 
 " # Core remaps
@@ -17,8 +17,12 @@ set cursorline " Highlight the current line
 set showmatch " Highlight matching brackets
 set incsearch " Search as characters are entered
 set hlsearch " Highlight search matches
+
+" # Style
+
 set colorcolumn=80 " Highlight line length 80 ('cc')
-highlight ColorColumn ctermbg=lightgrey guibg=lightgrey " Gray cc (not red)
+" and set it to be gray (not default):
+highlight ColorColumn ctermbg=darkgrey guibg=darkgrey
 
 " # Whitespace
 
