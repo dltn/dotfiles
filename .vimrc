@@ -18,6 +18,10 @@ set showmatch " Highlight matching brackets
 set incsearch " Search as characters are entered
 set hlsearch " Highlight search matches
 
+" # Filesystem
+
+set directory=$HOME/.vim/swp// " Organize swp files in home dir
+
 " # Style
 
 set colorcolumn=80 " Highlight line length 80 ('cc')
