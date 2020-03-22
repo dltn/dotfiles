@@ -1,9 +1,8 @@
-# My dotfiles
+# [@dltn](https://github.com/dltn)'s dotfiles
 
-## What are dotfiles?
-See https://dotfiles.github.io
+[What are dotfiles?](https://dotfiles.github.io)
 
-## Installation
+### Installation
 
 Clone into a standalone directory and pull/push files as needed:
 
