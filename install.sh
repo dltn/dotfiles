@@ -14,6 +14,7 @@ cp -iv bashrc_scripts/* ~/.bashrc.d/
 
 # vim
 cp -iv .vimrc ~/.vimrc
+mkdir -p ~/.vim/swp
 
 # tmux
 cp -iv .tmux.conf ~/.tmux.conf
