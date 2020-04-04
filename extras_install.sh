@@ -10,7 +10,8 @@ fi
 
 if ! grep -q "colo nord" ~/.vimrc
 then
-    echo "colo nord" >> ~/.vimrc
+    script=$(basename -- "$0")
+    echo "colo nord \" added by "$script >> ~/.vimrc
 fi
 
 # Download & install vimwiki plugin
