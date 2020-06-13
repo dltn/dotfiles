@@ -6,6 +6,9 @@ set nocompatible " Disable vi compatibility (stackoverflow.com/a/5845583)
 filetype plugin on " Load plugins for specific file types
 
 " # Core remaps
+nnoremap <SPACE> <Nop>
+let mapleader=" " " Space key as leader
+
 nnoremap <Leader>s :update<CR> " https://vim.fandom.com/wiki/Quick_save
 
 " # Look & Feel
