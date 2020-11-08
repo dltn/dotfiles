@@ -55,6 +55,7 @@ let g:vimwiki_list = [
 \ {
     \ 'path': '~/vimwiki',
     \ 'syntax': 'markdown',
+    \ 'diary_rel_path': '.',
     \ 'ext': '.md'
 \ }
 \]
