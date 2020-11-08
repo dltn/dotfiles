@@ -43,9 +43,12 @@ set list listchars=trail:· " Visualize trailing whitespace with a dot
 
 " # vimwiki
 
+" - <Leader>t to open timestamped line
+nnoremap <Leader>t o<C-r>=strftime("%F %H:%M ")<cr>
+
 " - Diary Navigation Mapping
-:nnoremap <leader><Left> :VimwikiDiaryPrevDay<CR>
-:nnoremap <leader><Right> :VimwikiDiaryNextDay<CR>
+:nnoremap <Leader><Left> :VimwikiDiaryPrevDay<CR>
+:nnoremap <Leader><Right> :VimwikiDiaryNextDay<CR>
 
 " - Set default vimwiki format to markdown
 let g:vimwiki_list = [
