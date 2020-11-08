@@ -44,7 +44,9 @@ set list listchars=trail:· " Visualize trailing whitespace with a dot
 " # vimwiki
 
 " - <Leader>t to open timestamped line
-nnoremap <Leader>t o<C-r>=strftime("%F %H:%M ")<cr>
+"   https://vim.fandom.com/wiki/Insert_current_date_or_time
+nnoremap <Leader>d o<C-r>=strftime("Y-%m-%d %H:%M ")<cr>
+nnoremap <Leader>t o<C-r>=strftime("%H:%M ")<cr>
 
 " - Diary Navigation Mapping
 :nnoremap <Leader><Left> :VimwikiDiaryPrevDay<CR>
