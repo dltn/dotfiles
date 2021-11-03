@@ -7,7 +7,7 @@
 Clone into a standalone directory and pull/push files as needed:
 
 ```
-git clone https://github.com/dltn/dotfiles
+git clone git@github.com:dltn/dotfiles.git
 ```
 
 For automated install of the standard setup, run `install.sh`.
