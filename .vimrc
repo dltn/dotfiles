@@ -43,12 +43,12 @@ set list listchars=trail:· " Visualize trailing whitespace with a dot
 
 " # vimwiki
 
-" - Macros to insert headers into file
+" - Insert filename (without path, without extension) as Markdown h1
 "   TODO: more proper way to open two lines
-"   https://vim.fandom.com/wiki/Insert_current_date_or_time
-nnoremap <Leader>d I<C-r>=strftime("# %Y-%m-%d")<cr><Esc>o<Esc>o
+nnoremap <Leader>f I# <C-r>=expand("%:t")<cr><Esc>F.d$o<Esc>o
+
+" - Open a timestamped line
 nnoremap <Leader>t o<C-r>=strftime("%H:%M ")<cr>
-nnoremap <Leader>f I# <C-r>%<Esc>dawxo<Esc>o
 
 " - Diary Navigation Mapping
 :nnoremap <Leader><Left> :VimwikiDiaryPrevDay<CR>
