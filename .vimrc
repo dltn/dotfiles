@@ -20,6 +20,7 @@ set cursorline " Highlight the current line
 set showmatch " Highlight matching brackets
 set incsearch " Search as characters are entered
 set hlsearch " Highlight search matches
+set linebreak " soft wrap on whole words (i.e. not mid-word)
 
 " # Filesystem
 
