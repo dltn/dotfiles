@@ -55,12 +55,23 @@ nnoremap <Leader>t o<C-r>=strftime("[%H:%M]\n")<cr>
 :nnoremap <Leader><Left> :VimwikiDiaryPrevDay<CR>
 :nnoremap <Leader><Right> :VimwikiDiaryNextDay<CR>
 
-" - Set default vimwiki format to markdown
-let g:vimwiki_list = [
-\ {
-    \ 'path': '~/vimwiki',
-    \ 'syntax': 'markdown',
-    \ 'diary_rel_path': '.',
-    \ 'ext': '.md'
-\ }
-\]
+" - Automatically h1 new files
+let g:vimwiki_auto_header=1
+
+" - Only use vimwiki in the context of wiki files
+let g:vimwiki_global_ext=0
+
+" - Set default vimwiki format to markdown, or use machine specific config
+try
+    source ~/.vimwiki_list
+catch
+    let g:vimwiki_list = [
+    \ {
+        \ 'path': '~/vimwiki',
+        \ 'syntax': 'markdown',
+        \ 'diary_rel_path': '.',
+        \ 'ext': '.md'
+    \ }
+    \]
+endtry
+
