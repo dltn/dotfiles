@@ -49,7 +49,7 @@ set list listchars=trail:· " Visualize trailing whitespace with a dot
 nnoremap <Leader>f I# <C-r>=expand("%:t")<cr><Esc>F.d$o<Esc>o
 
 " - Open a timestamped line
-nnoremap <Leader>t o<C-r>=strftime("[%H:%M]\n")<cr>
+nnoremap <Leader>t I<C-r>=strftime("[%H:%M]\n")<cr>
 
 " - Diary Navigation Mapping
 :nnoremap <Leader><Left> :VimwikiDiaryPrevDay<CR>
