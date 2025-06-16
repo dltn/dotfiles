@@ -26,3 +26,6 @@ if [ "$answer" != "${answer#[Yy]}" ] ;then
         sh extras_install.sh
 fi
 
+
+# configure git
+sh ./setup_git_config.sh
