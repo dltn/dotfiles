@@ -12,13 +12,13 @@ fi
 
 # Interactive prompts for username and GitHub username
 if [ -z "$1" ]; then
-  read -p "Enter username to create: " USER_NAME
+  read -p "Enter username to create: " USER_NAME </dev/tty
 else
   USER_NAME="$1"
 fi
 
 if [ -z "$2" ]; then
-  read -p "Enter GitHub username to fetch SSH keys from (or press Enter to skip): " GITHUB_USER
+  read -p "Enter GitHub username to fetch SSH keys from (or press Enter to skip): " GITHUB_USER </dev/tty
 else
   GITHUB_USER="$2"
 fi
@@ -35,15 +35,18 @@ fi
 echo "Creating user '$USER_NAME'..."
 if id "$USER_NAME" >/dev/null 2>&1; then
   echo "User $USER_NAME already exists."
+  read -p "Set/change password for existing user? (y/N): " -n 1 -r </dev/tty
+  echo ""
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    passwd "$USER_NAME"
+  fi
 else
   adduser --disabled-password --gecos "" "$USER_NAME"
   usermod -aG sudo "$USER_NAME"
   echo "User $USER_NAME created and added to sudo group."
+  echo "Setting password for user $USER_NAME:"
+  passwd "$USER_NAME"
 fi
-
-# Set password for the user
-echo "Setting password for user $USER_NAME:"
-passwd "$USER_NAME"
 
 # Ensure .ssh directory exists with correct permissions
 echo "Setting up SSH directory..."
@@ -97,7 +100,7 @@ fi
 # Ask if user wants to run dotfiles setup
 if [ -f "/home/$USER_NAME/dotfiles/setup.sh" ]; then
   echo ""
-  read -p "Would you like to run the dotfiles setup script now? (y/N): " -n 1 -r
+  read -p "Would you like to run the dotfiles setup script now? (y/N): " -n 1 -r </dev/tty
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Running dotfiles setup..."
