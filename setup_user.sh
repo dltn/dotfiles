@@ -35,17 +35,10 @@ fi
 echo "Creating user '$USER_NAME'..."
 if id "$USER_NAME" >/dev/null 2>&1; then
   echo "User $USER_NAME already exists."
-  read -p "Set/change password for existing user? (y/N): " -n 1 -r </dev/tty
-  echo ""
-  if [[ $REPLY =~ ^[Yy]$ ]]; then
-    passwd "$USER_NAME"
-  fi
 else
   adduser --disabled-password --gecos "" "$USER_NAME"
   usermod -aG sudo "$USER_NAME"
   echo "User $USER_NAME created and added to sudo group."
-  echo "Setting password for user $USER_NAME:"
-  passwd "$USER_NAME"
 fi
 
 # Ensure .ssh directory exists with correct permissions
