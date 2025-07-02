@@ -14,4 +14,4 @@ For automated install of the standard setup, run `install.sh`.
 
 
 ### Droplet user setup
-Run `sudo ./setup_dalton_user.sh` to create the `dalton` user with sudo privileges, generate an SSH key and print the public key for use at [GitHub](https://github.com/settings/keys). If `/root/dotfiles` exists, the repository will be cloned to `/home/dalton/dotfiles` with the remote set to `git@github.com:dltn/dotfiles.git`.
+Run `curl -fsSL https://raw.githubusercontent.com/dltn/dotfiles/master/setup_dalton_user.sh | sh` as root to create the `dalton` user with sudo privileges, generate an SSH key and print the public key for use at [GitHub](https://github.com/settings/keys). If `/root/dotfiles` exists, the repository will be cloned to `/home/dalton/dotfiles` with the remote set to `git@github.com:dltn/dotfiles.git`.
