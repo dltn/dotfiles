@@ -33,3 +33,13 @@ $PUB_KEY
 
 Add this key to your GitHub account: https://github.com/settings/keys
 EOM
+
+# copy dotfiles repo from root if it exists
+ROOT_DOTFILES="/root/dotfiles"
+if [ -d "$ROOT_DOTFILES/.git" ]; then
+  su - "$USER_NAME" -c "git clone \"$ROOT_DOTFILES\" ~/dotfiles"
+  su - "$USER_NAME" -c "cd ~/dotfiles && git remote set-url origin git@github.com:dltn/dotfiles.git"
+  echo "Cloned dotfiles into /home/$USER_NAME/dotfiles with SSH remote."
+else
+  echo "Warning: $ROOT_DOTFILES not found, skipping clone." >&2
+fi
