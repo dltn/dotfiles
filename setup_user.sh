@@ -91,20 +91,22 @@ if [ -n "$GITHUB_USER" ]; then
 fi
 
 # Ask if user wants to run dotfiles setup
-if [ -f "/home/$USER_NAME/dotfiles/setup.sh" ]; then
+if [ -f "/home/$USER_NAME/dotfiles/install.sh" ]; then
   echo ""
   read -p "Would you like to run the dotfiles setup script now? (y/N): " -n 1 -r </dev/tty
   echo ""
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "Running dotfiles setup..."
-    su - "$USER_NAME" -c "cd ~/dotfiles && bash setup.sh"
+    su - "$USER_NAME" -c "cd ~/dotfiles && bash install.sh"
     echo "Dotfiles setup completed."
   else
-    echo "Skipping dotfiles setup. You can run it later with: su - $USER_NAME -c 'cd ~/dotfiles && bash setup.sh'"
+    echo "Skipping dotfiles setup. You can run it later with: su - $USER_NAME -c 'cd ~/dotfiles && bash install.sh'"
   fi
 else
-  echo "Note: dotfiles/setup.sh not found, skipping setup script option."
+  echo "Note: dotfiles/install.sh not found, skipping setup script option."
 fi
+
+SERVER_IP=$(hostname -I | awk '{print $1}')
 
 cat <<EOM
 
@@ -116,7 +118,7 @@ $PUB_KEY
 
 Next steps:
 1. Add this key to your GitHub account: https://github.com/settings/keys
-2. Test SSH access: ssh $USER_NAME@\$(hostname -I | awk '{print \$1}')
+2. Test SSH access: ssh $USER_NAME@$SERVER_IP
 $([ -n "$GITHUB_USER" ] && echo "3. Your GitHub SSH keys have been added for authentication")
 
 EOM
