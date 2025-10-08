@@ -14,6 +14,7 @@ nnoremap <Leader>s :update<CR> " https://vim.fandom.com/wiki/Quick_save
 " # Look & Feel
 
 syntax on " Enable syntax highlighting
+set re=0 " Use new regex engine (jameschambers.co.uk/vim-typescript-slow)
 set ruler " Enable ruler (in bottom-right)
 set number " Enable line numbers
 set cursorline " Highlight the current line
