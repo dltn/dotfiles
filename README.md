@@ -16,6 +16,6 @@ For automated install of the standard setup, run `install.sh`.
 ### Remote Setup
 
 ```
-curl -fsSL https://raw.githubusercontent.com/dltn/dotfiles/master/setup_user.sh | sudo bash -s dalton
+curl -fsSL https://raw.githubusercontent.com/dltn/dotfiles/main/setup_user.sh | sudo bash -s dalton
 ``` 
 
