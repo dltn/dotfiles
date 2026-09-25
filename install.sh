@@ -16,6 +16,9 @@ if ! grep -q "source.*dotfiles/.tmux.conf" ~/.tmux.conf 2>/dev/null; then
     echo "Added source for .tmux.conf"
 fi
 
+# claude code hooks (colour tmux window tabs by Claude session state)
+"$DOTFILES_DIR/setup_claude_hooks.sh"
+
 # aliases
 if ! grep -q "source.*dotfiles/aliases.sh" ~/.zshrc 2>/dev/null; then
     echo "source $DOTFILES_DIR/aliases.sh" >> ~/.zshrc
