@@ -1,0 +1,34 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear",
+        "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh waiting", "async": true, "timeout": 5 }]
+      }
+    ],
+    "UserPromptSubmit": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh working", "async": true, "timeout": 5 }] }
+    ],
+    "PreToolUse": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh tool", "async": true, "timeout": 5 }] }
+    ],
+    "PostToolUse": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh working", "async": true, "timeout": 5 }] }
+    ],
+    "PostToolUseFailure": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh working", "async": true, "timeout": 5 }] }
+    ],
+    "Notification": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh waiting", "async": true, "timeout": 5 }] }
+    ],
+    "Stop": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh waiting", "async": true, "timeout": 5 }] }
+    ],
+    "StopFailure": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh waiting", "async": true, "timeout": 5 }] }
+    ],
+    "SessionEnd": [
+      { "hooks": [{ "type": "command", "command": "$DOTFILES_DIR/claude_tmux_state.sh clear", "timeout": 5 }] }
+    ]
+  }
+}
