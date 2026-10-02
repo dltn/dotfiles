@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Claude Code hook -> tmux. Records whether the Claude in this pane is working or waiting on you in the
-# pane option @claude_state; .tmux.conf colours the window tab from it (green = working, orange = waiting).
+# pane option @claude_state; claude.tmux.conf colours tmux from it (green = working, orange = waiting).
 #
 # Usage, from the hooks in claude_hooks.json (setup_claude_hooks.sh merges them into ~/.claude/settings.json):
 #   claude_tmux_state.sh working   # UserPromptSubmit, PostToolUse, PostToolUseFailure
