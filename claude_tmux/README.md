@@ -39,6 +39,9 @@ set -g pane-border-status top
 set -g pane-border-format '#{E:@claude_pane_fg} #{pane_title} #[default]'
 ```
 
+With [merge_tmux](../merge_tmux), which joins a session's windows into one, each name in the merged window's
+tab is coloured by its own panes. Its README has the tab format for that.
+
 ### Colours
 
 The defaults suit a dark status bar; on tmux's stock green one, pick others. Set any of these after the

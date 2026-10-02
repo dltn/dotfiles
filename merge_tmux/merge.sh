@@ -2,18 +2,19 @@
 # Merge a tmux session's windows into one window of side-by-side columns, and explode them back out.
 # For a wide monitor: each window becomes a full-height column that keeps its own pane layout.
 #
-# Usage, from the key binding in .tmux.conf:
-#   tmux_merge.sh toggle <session-id>    # explode if the session has merged windows, otherwise merge
-#   tmux_merge.sh merge <session-id>     # every window except pinned ones (@pinned) -> columns of the first
-#   tmux_merge.sh explode <session-id>   # each column -> its own window again, under its old name
+# Usage, from the key binding in merge.tmux.conf:
+#   merge.sh toggle <session-id>    # explode if the session has merged windows, otherwise merge
+#   merge.sh merge <session-id>     # every window except pinned ones (@merge_pinned) -> columns of the first
+#   merge.sh explode <session-id>   # each column -> its own window again, under its old name
 #
 # merge tags every pane with the window it came from: @merge_group (the window's position), @merge_name,
 # @merge_auto (set if tmux was naming the window automatically) and @merge_layout. explode goes by column,
 # so panes opened, closed or resized while merged stay with their column. If the columns are gone (say the
 # layout was cycled) it regroups the panes by tag instead and puts back each window's saved layout.
 #
-# The merged window also gets @merge_tab, a format for its tab that .tmux.conf uses in place of the name:
-# the windows' names joined by +, each behind a copy of @merge_fg (if set) to colour it by its own panes.
+# The merged window also gets @merge_tab, a format a tab can show in place of the window's name: the same
+# names joined by +, each behind a copy of @merge_fg (if set) with GROUP swapped for the @merge_group of
+# that window's panes, so that each name can be coloured by its own panes.
 
 session=$2
 
@@ -102,7 +103,7 @@ merge() {
     explode # start from plain windows, so merging again picks up windows opened since
 
     local wins count target active width height free win pane layout name auto names tab fg cells last k=0
-    wins=$(tmux list-windows -t "$session" -F '#{?@pinned,,#{window_id}}' | grep .)
+    wins=$(tmux list-windows -t "$session" -F '#{?@merge_pinned,,#{window_id}}' | grep .)
     count=$(grep -c . <<< "$wins")
     if ((count < 2)); then
         tmux display "nothing to merge"
@@ -122,7 +123,7 @@ merge() {
         name=$(tmux display -p -t "$win" '#{window_name}')
         auto=$(tmux display -p -t "$win" '#{?automatic-rename,1,}')
         names=${names:+$names+}$name
-        tab=${tab:+$tab#[default]+}${fg//GROUP/$k}${name//\#/##}
+        tab=${tab:+$tab#[default]+}#[default]${fg//GROUP/$k}${name//\#/##}
         cells=${cells:+$cells,}$(scale "$layout" "$((k * free / count - (k - 1) * free / count))" "$height")
         for pane in $(tmux list-panes -t "$win" -F '#{pane_id}'); do
             tmux set -p -t "$pane" @merge_group "$k"
@@ -236,7 +237,7 @@ explode_window() {
             tmux set -pu -t "$pane" "$tag"
         done
     done
-    tmux set -wu -t "$win" @merge_tab
+    tmux set -wuq -t "$win" @merge_tab
     tmux select-pane -t "$active"
     [ "$win" != "$current" ] || tmux select-window -t "$active"
 }
